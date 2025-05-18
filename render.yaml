@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: techbit-backend          # Any unique name
+    env: node
+    region: oregon                 # Optional: Choose your region
+    plan: free                     # Or starter/pro for paid plans
+
+    buildCommand: npm install
+    startCommand: node server.js   # Or whatever your entry file is
+
+    autoDeploy: true               # Optional: auto deploy on git push
+
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: PORT
+        value: 3000
